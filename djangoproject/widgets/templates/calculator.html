@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        body{
+            background: wheat;
+        }
+    .calculator {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(172deg,
+            rgba(2, 0, 36, 1) 0%,
+            rgba(5, 22, 168, 0.9612219887955182) 23%,
+            rgba(0, 212, 255, 1) 100%);
+    width: 418px;
+    height: 590px;
+    margin: 57px;
+    border: solid black;
+    border-radius: 11px;
+    margin-top: 0px;
+    box-shadow: 0px 4px 10px rgb(20, 20, 20);
+}
+
+.column1,
+.column2,
+.column3,
+.column4 {
+    /* display: flex;
+          justify-content: space-around; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.num {
+    list-style-type: none;
+    background-color: khaki;
+    font-weight: bolder;
+    font-size: 19px;
+    padding: 18px;
+    text-align: center;
+    margin: 8px;
+    border-radius: 7px;
+    box-shadow: 0px 4px 10px rgb(20, 20, 20);
+}
+
+.num:hover {
+    background-color: rgb(180, 135, 75);
+}
+
+.inputarea input:hover {
+    border: 3px solid black;
+}
+
+.inputarea input {
+    width: 382px;
+    margin: 10px;
+    height: 128px;
+    font-size: 30px;
+    text-align: right;
+    font-weight: 800;
+    padding-right: 10px;
+    border: solid rgba(0, 0, 0, 0.466);
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.column4 .num {
+    color: rgb(5, 5, 92);
+}
+
+.keys {
+    display: flex;
+    justify-content: space-around;
+}
+
+.widget1{
+    display: flex;
+    justify-content: space-around;
+}
+.notes p{
+    font-weight: bolder;
+    font-size:30px;
+    margin: 4px;
+}
+    </style>
+    <title>Calculator | Django project</title>
+</head>
+<body>
+    <div class="d-flex flex-column align-items-center bd-highlight mb-3 mt-4">
+        <div class="p-2 bd-highlight">
+          <img
+            src="{% static 'images/django-icon.jpg'%}"
+            class="rounded"
+            alt="icon"
+            style="width: 100px"
+          />
+        </div>
+        <div class="p-2 bd-highlight">
+          <h2 class="fw-bold mt-2">Django Projects</h2>
+        </div>
+        <div class="p-2 bd-highlight">
+          <p>
+            Presenting Two django projects created with html,css and javscript and
+            framework django
+          </p>
+        </div>
+      </div>
+<hr>
+      <div class="widget1">
+        <form class="calculator" name="calculator">
+            <div class="inputarea">
+                <input id="inputvalue" type="text" name="inputvalue" placeholder="Enter Number" />
+            </div>
+            <div class="keys">
+                <div class="column1">
+                    <input type="button" class="num" value="C"
+                        onclick="calculator.inputvalue.value = ''" id="clear">
+                    <input type="button" class="num" value="7"
+                        onclick="calculator.inputvalue.value +='7'">
+                    <input type="button" class="num" value="4"
+                        onclick="calculator.inputvalue.value +='4'">
+                    <input type="button" class="num" value="1"
+                        onclick="calculator.inputvalue.value +='1'">
+                    <input type="button" class="num" value="0"
+                        onclick="calculator.inputvalue.value+='0'">
+                </div>
+
+                <div class="column2">
+                    <input type="button" class="num" value="%"
+                        onclick="calculator.inputvalue.value +='%'">
+                    <input type="button" class="num" value="8"
+                        onclick="calculator.inputvalue.value +='8'">
+                    <input type="button" class="num" value="5"
+                        onclick="calculator.inputvalue.value +='5'">
+                    <input type="button" class="num" value="2"
+                        onclick="calculator.inputvalue.value +='2'">
+                    <input type="button" class="num" value="00"
+                        onclick="calculator.inputvalue.value +='00'">
+                </div>
+
+                <div class="column3">
+                    <input type="button" class="num" value="CE" onclick="backspace()" id="bs">
+                    <input type="button" class="num" value="9"
+                        onclick="calculator.inputvalue.value +='9'">
+                    <input type="button" class="num" value="6"
+                        onclick="calculator.inputvalue.value +='6'">
+                    <input type="button" class="num" value="3"
+                        onclick="calculator.inputvalue.value +='3'">
+                    <input type="button" class="num" value="."
+                        onclick="calculator.inputvalue.value +='.'">
+                </div>
+
+                <div class="column4">
+                    <input type="button" class="num" value="÷"
+                        onclick="calculator.inputvalue.value += '/'">
+                    <input type="button" class="num" value="X"
+                        onclick="calculator.inputvalue.value +='*'">
+                    <input type="button" class="num" value="-"
+                        onclick="calculator.inputvalue.value +='-'">
+                    <input type="button" class="num" value="+"
+                        onclick="calculator.inputvalue.value +='+'">
+                    <input type="button" class="num" value="="
+                        onclick="calculator.inputvalue.value = eval(calculator.inputvalue.value)">
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <div class="notes">
+          <p>Make Notes Here:</p><br>
+          <textarea name="notes" id="" cols="70" rows="10" placeholder="Start typing here......."></textarea>
+        </div>
+      </div>
+
+
+
+      <footer class="text-center text-white" style="background-color: grey;">
+        <!-- Grid container -->
+        <div class="container p-4"></div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: grey;">
+          © 2020 Copyright:
+          <a class="text-white" href="{% url 'index'%}">DjangoProjects.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+<script>
+    var data = document.getElementById("inputvalue").value;
+                document.getElementById("bs").addEventListener("click");
+                function backspace() {
+                    inputvalue.value = inputvalue.value.slice(0, inputvalue.value.length - 1);
+                };
+</script>
+</body>
+</html>

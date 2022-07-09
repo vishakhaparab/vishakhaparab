@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+  {% block title %} SignUp Page {% endblock %}
+
+
+  {% block content %}
+  <div class="p-4">
+      <p class="text-center fw-bold">Create Your Account To Use ToDoApp </p>
+    <div class="col-lg-5 shadow p-0 mx-auto ">
+      <div class="alert alert-success m-0"><h2> Create Account</h2></div>
+      <div class="p-4" id = "signup">
+        <form method ="post" action="/todosignup/">
+          {% csrf_token %}
+          {{form.as_p}}
+          <hr>
+          <input class="btn btn-success" type="submit" value="Create Account">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock%}
+
+
+
+
+
+
+
